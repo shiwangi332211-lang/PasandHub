@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PasandHub - Product Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="logo">Pana<span>d</span>Hub
+        </a>
+        <nav class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#process">Our Process</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#products" class="nav-button">Explore Products</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </header>
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-small">DISCOVER SOMETHING NEW</p>
+            <h1>WELCOME TO PasandHub</h1>
+            <p class="hero-description">
+                Explore amazing products at one place.
+                Find what you need with just one search.
+            </p>
+            <form class="search-box" id="searchForm">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Enter product name..."
+                    aria-label="Search products"
+                >
+                <select id="categorySelect" aria-label="Select category">
+                    <option value="">All Categories</option>
+                </select>
+                <button type="submit">Search 🔍</button>
+            </form>
+            <p class="hero-note">
+                Discover • Explore • Shop
+            </p>
+        </div>
+    </section>
+    <section class="categories section" id="categories">
+        <div class="section-heading">
+            <span class="eyebrow">EXPLORE COLLECTIONS</span>
+            <h2>PRODUCT CATEGORIES</h2>
+            <p>
+                Browse through different categories and discover
+                products that match your interests.
+            </p>
+        </div>
+        <div class="category-grid" id="categoryGrid">
+            <button class="category-card" data-category="beauty">
+                <span class="category-icon">✨</span>
+                <h3>Beauty</h3>
+                <p>Explore beauty products and essentials.</p>
+            </button>
+            <button class="category-card" data-category="fragrances">
+                <span class="category-icon">🌸</span>
+                <h3>Fragrances</h3>
+                <p>Discover your favourite fragrances.</p>
+            </button>
+            <button class="category-card" data-category="furniture">
+                <span class="category-icon">🛋️</span>
+                <h3>Furniture</h3>
+                <p>Find products for your home.</p>
+            </button>
+            <button class="category-card" data-category="groceries">
+                <span class="category-icon">🛒</span>
+                <h3>Groceries</h3>
+                <p>Explore everyday essentials.</p>
+            </button>
+            <button class="category-card" data-category="home-decoration">
+                <span class="category-icon">🏡</span>
+                <h3>Home Decor</h3>
+                <p>Make your home more beautiful.</p>
+            </button>
+            <button class="category-card" data-category="laptops">
+                <span class="category-icon">💻</span>
+                <h3>Laptops</h3>
+                <p>Discover technology and gadgets.</p>
+            </button>
+            <button class="category-card" data-category="mens-shirts">
+                <span class="category-icon">👕</span>
+                <h3>Fashion</h3>
+                <p>Explore stylish clothing collections.</p>
+            </button>
+            <button class="category-card" data-category="smartphones">
+                <span class="category-icon">📱</span>
+                <h3>Smartphones</h3>
+                <p>Find your favourite smartphones.</p>
+            </button>
+        </div>
+        <button class="view-all-btn" id="viewAllBtn">
+            VIEW ALL PRODUCTS
+        </button>
+    </section>
+    <section class="products-section section" id="products">
+        <div class="section-heading">
+            <span class="eyebrow">OUR COLLECTION</span>
+            <h2>EXPLORE OUR PRODUCTS</h2>
+            <p>
+                Find interesting products from our latest collection.
+            </p>
+        </div>
+        <div class="product-toolbar">
+            <p id="resultCount">Loading products...</p>
+            <select id="sortSelect" aria-label="Sort products">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+            </select>
+        </div>
+        <div id="loading" class="message loading">
+            <div class="spinner"></div>
+            <p>Loading amazing products...</p>
+        </div>
+        <div id="errorMessage" class="message error hidden">
+            <h3>Oops! Something went wrong.</h3>
+            <p>Unable to load products. Please check your internet connection.</p>
+            <button id="retryBtn">Try Again</button>
+        </div>
+        <div id="noResults" class="message hidden">
+            <h3>No Products Found!</h3>
+            <p>Try another search or select a different category.</p>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+        <div class="product-footer">
+            <button id="clearFiltersBtn" class="clear-btn">
+                Clear Search & Filters
+            </button>
+        </div>
+    </section>
+    <section class="process section" id="process">
+        <div class="section-heading">
+            <span class="eyebrow">SIMPLE EXPERIENCE</span>
+            <h2>OUR PROCESS</h2>
+            <p>
+                Discovering your favourite products is easy with PasandHub.
+            </p>
+        </div>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-icon">🔍</div>
+                <h3>Search</h3>
+                <p>Search for products using their names and keywords.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-icon">📂</div>
+                <h3>Explore</h3>
+                <p>Browse different categories to find suitable products.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-icon">🛍️</div>
+                <h3>Discover</h3>
+                <p>View product images, names, prices and details.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-icon">⭐</div>
+                <h3>Choose</h3>
+                <p>Explore the collection and find your favourite items.</p>
+            </div>
+        </div>
+    </section>
+    <section class="about section" id="about">
+        <div class="about-content">
+            <span class="eyebrow">ABOUT PasandHub</span>
+            <h2>Everything You Love, In One Place.</h2>
+            <p>
+                PasandHub is a simple and responsive product explorer
+                designed to help users discover products from different
+                categories. It uses a public REST API to retrieve real
+                product data and display it through an interactive interface.
+            </p>
+            <a href="#products" class="about-btn">Explore Collection</a>
+        </div>
+    </section>
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div>
+                <a href="#home" class="logo footer-logo">
+                    Pasan<span>d</span>Hub
+                </a>
+                <p>Your place to discover amazing products.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#products">Products</a>
+                <a href="#about">About Us</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 PasandHub. All Rights Reserved.
+            <p>Week 4 - Web Development Internship Project</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
